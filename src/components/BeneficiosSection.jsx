@@ -53,6 +53,7 @@ export default function BeneficiosSection() {
               gridTemplateColumns: "repeat(4, 1fr)",
               gap:                 16,
             }}
+            className="beneficios-grid"
           >
             {BENEFICIOS.map((b) => (
               <div

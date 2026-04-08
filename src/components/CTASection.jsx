@@ -39,6 +39,7 @@ export default function CTASection() {
           gap:            64,
           flexWrap:       "wrap",
         }}
+        className="cta-inner"
       >
         {/* Texto */}
         <div style={{ flex: "1 1 400px" }}>

@@ -53,7 +53,7 @@ export default function HeroSection() {
       />
 
       {/* Conteúdo */}
-      <div style={{ position: "relative", maxWidth: 1600, width: "100%", margin: "0 auto", padding: "0 40px", boxSizing: "border-box" }}>
+      <div style={{ position: "relative", maxWidth: 1600, width: "100%", margin: "0 auto", padding: "0 40px", boxSizing: "border-box" }} className="hero-container">
         {/* Pílula + título + subtítulo — limitados em largura para legibilidade */}
         <div style={{ maxWidth: 820 }}>
         <div

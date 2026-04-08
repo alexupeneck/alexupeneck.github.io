@@ -41,6 +41,29 @@ export default function App() {
         @media (max-width: 768px) {
           .navbar-logo { margin-left: 0; }
           .footer-logo { margin-left: 0; }
+
+          /* Navbar — esconde links, mantém só logo e botão */
+          .nav-links-desktop { display: none !important; }
+
+          /* Footer — empilha colunas */
+          .footer-grid { grid-template-columns: 1fr 1fr !important; }
+
+          /* Benefícios — 2 colunas em mobile */
+          .beneficios-grid { grid-template-columns: 1fr 1fr !important; }
+
+          /* CTA — empilha */
+          .cta-inner { flex-direction: column !important; }
+
+          /* Hero — padding lateral adequado */
+          .hero-container { padding: 0 20px !important; }
+
+          /* Ecossistema — card empilha */
+          .ecosistema-card { flex-direction: column !important; padding: 32px 24px !important; margin: 0 20px !important; }
+        }
+
+        @media (max-width: 480px) {
+          .footer-grid { grid-template-columns: 1fr !important; }
+          .beneficios-grid { grid-template-columns: 1fr !important; }
         }
       `}</style>
 

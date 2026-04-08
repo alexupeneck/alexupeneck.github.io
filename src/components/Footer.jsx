@@ -12,6 +12,7 @@ export default function Footer() {
             gap:                 40,
             marginBottom:        48,
           }}
+          className="footer-grid"
         >
           {/* Coluna da marca */}
           <div>

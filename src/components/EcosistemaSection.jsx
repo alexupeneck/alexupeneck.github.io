@@ -67,6 +67,7 @@ export default function EcosistemaSection() {
           flexWrap:      "wrap",
           transition:    "border-color 0.3s",
         }}
+        className="ecosistema-card"
       >
         {/* Lado esquerdo — imagem + nome */}
         <div style={{ flex: "0 0 auto", display: "flex", flexDirection: "column", alignItems: "center", gap: 24, minWidth: 260 }}>
