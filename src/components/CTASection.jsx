@@ -5,70 +5,84 @@ export default function CTASection() {
     <section
       id="contato"
       style={{
-        padding:    "80px 24px",
-        background: COR.fundoSecund,
-        borderTop:  `1px solid ${COR.fundoBorda}`,
+        padding:    "120px 40px",
+        position:   "relative",
+        overflow:   "hidden",
+        borderTop:  `3px solid ${COR.verdeClaro}`,
       }}
     >
+      {/* Glow radial verde centralizado */}
+      <div
+        aria-hidden="true"
+        style={{
+          position:     "absolute",
+          top:          "50%",
+          left:         "50%",
+          transform:    "translate(-50%, -50%)",
+          width:        900,
+          height:       600,
+          borderRadius: "50%",
+          background:   `radial-gradient(ellipse, ${COR.verdeOp20} 0%, transparent 70%)`,
+          pointerEvents: "none",
+        }}
+      />
+
+      {/* Conteúdo */}
       <div
         style={{
-          maxWidth:     800,
-          margin:       "0 auto",
-          textAlign:    "center",
-          background:   COR.fundoCard,
-          border:       `1px solid ${COR.fundoBorda}`,
-          borderRadius: 20,
-          padding:      "60px 40px",
-          position:     "relative",
-          overflow:     "hidden",
+          position:       "relative",
+          maxWidth:       1600,
+          margin:         "0 auto",
+          display:        "flex",
+          alignItems:     "center",
+          justifyContent: "space-between",
+          gap:            64,
+          flexWrap:       "wrap",
         }}
       >
-        {/* Brilho decorativo */}
-        <div
-          aria-hidden="true"
-          style={{
-            position:     "absolute",
-            top:          -80,
-            left:         "50%",
-            transform:    "translateX(-50%)",
-            width:        400,
-            height:       400,
-            borderRadius: "50%",
-            background:   `radial-gradient(ellipse, ${COR.verdeOp20} 0%, transparent 70%)`,
-            pointerEvents: "none",
-          }}
-        />
-
-        <div style={{ position: "relative" }}>
+        {/* Texto */}
+        <div style={{ flex: "1 1 400px" }}>
+          <div style={{ color: COR.verdeClaro, fontWeight: 600, fontSize: 13, letterSpacing: "0.1em", marginBottom: 16 }}>
+            COMECE AGORA
+          </div>
           <h2
             style={{
-              fontSize:   "clamp(24px, 4vw, 40px)",
-              fontWeight: 800,
-              color:      COR.branco,
-              margin:     "0 0 16px",
-              fontFamily: "'Inter', sans-serif",
+              fontSize:     "clamp(32px, 4vw, 56px)",
+              fontWeight:   800,
+              color:        COR.branco,
+              lineHeight:   1.1,
+              margin:       "0 0 20px",
+              fontFamily:   "'Inter', sans-serif",
             }}
           >
-            Pronto para transformar sua operação?
+            Pronto para transformar<br />
+            <span style={{ color: COR.verdeClaro }}>sua operação?</span>
           </h2>
-          <p style={{ color: COR.brancoOp60, fontSize: 16, marginBottom: 36, lineHeight: 1.7 }}>
-            Comece com o VigiaSafra hoje mesmo — 15 dias grátis, sem cartão de crédito. Nossa equipe está pronta para ajudar você a configurar tudo.
+          <p style={{ color: COR.brancoOp60, fontSize: 18, lineHeight: 1.7, maxWidth: 480 }}>
+            Comece com o VigiaSafra hoje mesmo — 15 dias grátis, sem cartão de crédito. Nossa equipe está pronta para configurar tudo com você.
           </p>
+        </div>
 
-          <div style={{ display: "flex", gap: 16, justifyContent: "center", flexWrap: "wrap" }}>
+        {/* Ações */}
+        <div style={{ flex: "0 1 auto", display: "flex", flexDirection: "column", gap: 20, alignItems: "flex-start" }}>
+          <div style={{ display: "flex", gap: 16, flexWrap: "wrap" }}>
             <a
               href="https://app.vigiasafra.com.br/cadastro"
               target="_blank"
               rel="noopener noreferrer"
               style={{
-                background:     COR.verde,
-                color:          COR.branco,
-                padding:        "14px 32px",
+                background:     COR.verdeClaro,
+                color:          COR.fundo,
+                padding:        "16px 36px",
                 borderRadius:   8,
                 textDecoration: "none",
-                fontSize:       15,
+                fontSize:       16,
                 fontWeight:     700,
+                transition:     "opacity 0.2s, transform 0.15s",
+                whiteSpace:     "nowrap",
               }}
+              onMouseEnter={(e) => { e.target.style.opacity = "0.85"; e.target.style.transform = "translateY(-2px)"; }}
+              onMouseLeave={(e) => { e.target.style.opacity = "1"; e.target.style.transform = "translateY(0)"; }}
             >
               Criar conta grátis
             </a>
@@ -77,22 +91,27 @@ export default function CTASection() {
               style={{
                 background:     "transparent",
                 color:          COR.branco,
-                padding:        "14px 32px",
+                padding:        "16px 36px",
                 borderRadius:   8,
                 textDecoration: "none",
-                fontSize:       15,
+                fontSize:       16,
                 fontWeight:     600,
                 border:         `1.5px solid ${COR.brancoOp20}`,
+                transition:     "border-color 0.2s, transform 0.15s",
+                whiteSpace:     "nowrap",
               }}
+              onMouseEnter={(e) => { e.target.style.borderColor = COR.branco; e.target.style.transform = "translateY(-2px)"; }}
+              onMouseLeave={(e) => { e.target.style.borderColor = COR.brancoOp20; e.target.style.transform = "translateY(0)"; }}
             >
               comercial@xsafra.com.br
             </a>
           </div>
 
-          <div style={{ display: "flex", gap: 24, justifyContent: "center", marginTop: 32, flexWrap: "wrap" }}>
+          {/* Selos */}
+          <div style={{ display: "flex", gap: 24, flexWrap: "wrap" }}>
             {["15 dias grátis", "Sem cartão de crédito", "Suporte incluso"].map((selo) => (
-              <div key={selo} style={{ display: "flex", alignItems: "center", gap: 6, color: COR.cinza, fontSize: 13 }}>
-                <span style={{ color: COR.verde }}>✓</span> {selo}
+              <div key={selo} style={{ display: "flex", alignItems: "center", gap: 6, color: COR.brancoOp60, fontSize: 13 }}>
+                <span style={{ color: COR.verdeClaro, fontWeight: 700 }}>✓</span> {selo}
               </div>
             ))}
           </div>

@@ -36,9 +36,11 @@ export default function App() {
         a:focus-visible { outline: 2px solid ${COR.verdeClaro}; outline-offset: 2px; }
 
         .navbar-logo { margin-left: -32px; }
+        .footer-logo { margin-left: -32px; }
 
         @media (max-width: 768px) {
           .navbar-logo { margin-left: 0; }
+          .footer-logo { margin-left: 0; }
         }
       `}</style>
 

@@ -3,7 +3,7 @@ import LOGO_BASE64 from "../assets/logo";
 
 export default function Footer() {
   return (
-    <footer style={{ padding: "60px 24px 32px", borderTop: `1px solid ${COR.fundoBorda}` }}>
+    <footer style={{ padding: "60px 24px 32px", background: COR.fundoSecund, borderTop: `1px solid ${COR.fundoBorda}` }}>
       <div style={{ maxWidth: 1600, margin: "0 auto" }}>
         <div
           style={{
@@ -18,7 +18,8 @@ export default function Footer() {
             <img
               src={`data:image/png;base64,${LOGO_BASE64}`}
               alt="XSafra"
-              style={{ height: 36, width: "auto", marginBottom: 16 }}
+              style={{ height: 80, width: "auto", marginBottom: 16, marginLeft: -32 }}
+              className="footer-logo"
             />
             <p style={{ color: COR.brancoOp60, fontSize: 14, lineHeight: 1.7, maxWidth: 260 }}>
               Ecossistema de soluções agrícolas conectadas para o produtor rural brasileiro.

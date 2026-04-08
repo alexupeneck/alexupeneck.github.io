@@ -3,9 +3,9 @@ import { BENEFICIOS } from "../constants/dados";
 
 export default function BeneficiosSection() {
   return (
-    <section id="beneficios" style={{ padding: "100px 24px" }}>
+    <section id="beneficios" style={{ padding: "100px 24px", background: COR.fundoSecund }}>
       <div style={{ maxWidth: 1600, margin: "0 auto" }}>
-        <div style={{ display: "flex", gap: 80, alignItems: "flex-start", flexWrap: "wrap" }}>
+        <div style={{ display: "flex", gap: 80, alignItems: "center", flexWrap: "wrap" }}>
           {/* Coluna de texto */}
           <div style={{ flex: "1 1 300px" }}>
             <div style={{ color: COR.verdeClaro, fontWeight: 600, fontSize: 13, letterSpacing: "0.1em", marginBottom: 12 }}>
@@ -50,8 +50,8 @@ export default function BeneficiosSection() {
             style={{
               flex:                "2 1 400px",
               display:             "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
-              gap:                 24,
+              gridTemplateColumns: "repeat(4, 1fr)",
+              gap:                 16,
             }}
           >
             {BENEFICIOS.map((b) => (
