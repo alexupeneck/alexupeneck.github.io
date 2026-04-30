@@ -43,7 +43,7 @@ export default function CTASection() {
       >
         {/* Texto */}
         <div style={{ flex: "1 1 400px" }}>
-          <div style={{ color: COR.verdeClaro, fontWeight: 600, fontSize: 13, letterSpacing: "0.1em", marginBottom: 16 }}>
+          <div style={{ color: COR.verdeClaro, fontWeight: 700, fontSize: 18, letterSpacing: "0.08em", marginBottom: 16 }}>
             COMECE AGORA
           </div>
           <h2

@@ -33,7 +33,7 @@ export default function Footer() {
               SOLUÇÕES
             </h4>
             <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: 10 }}>
-              {["VigiaSafra", "GeoSafra", "MarketSafra"].map((s) => (
+              {["VigiaSafra", "PlanejaSafra", "MapeiaSafra", "Vigia@Pecuária"].map((s) => (
                 <li key={s}>
                   <a href="#solucoes" style={{ color: COR.brancoOp60, textDecoration: "none", fontSize: 14 }}>{s}</a>
                 </li>

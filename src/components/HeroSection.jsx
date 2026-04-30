@@ -168,8 +168,8 @@ export default function HeroSection() {
           }}
         >
           {[
-            { valor: "50k+", label: "Hectares monitorados" },
-            { valor: "3",    label: "Soluções integradas" },
+            { valor: "10k+", label: "Hectares monitorados" },
+            { valor: "4",    label: "Soluções integradas" },
             { valor: "24/7", label: "Monitoramento contínuo" },
           ].map((m) => (
             <div key={m.label} style={{ textAlign: "left" }}>

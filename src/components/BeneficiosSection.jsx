@@ -8,7 +8,7 @@ export default function BeneficiosSection() {
         <div style={{ display: "flex", gap: 80, alignItems: "center", flexWrap: "wrap" }}>
           {/* Coluna de texto */}
           <div style={{ flex: "1 1 300px" }}>
-            <div style={{ color: COR.verdeClaro, fontWeight: 600, fontSize: 13, letterSpacing: "0.1em", marginBottom: 12 }}>
+            <div style={{ color: COR.verdeClaro, fontWeight: 700, fontSize: 18, letterSpacing: "0.08em", marginBottom: 12 }}>
               BENEFÍCIOS
             </div>
             <h2

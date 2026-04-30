@@ -1,5 +1,13 @@
 import { COR } from "./cores";
 import mockupVigiaSafra from "../assets/mockup-vigiasafra.png";
+import vigiasafraPc from "../assets/vigiasafra_monitor_pc.png";
+import vigiasafraPc01 from "../assets/vigiasafra_monitor_pc_01.png.png";
+import vigiasafraMoto from "../assets/vigiasafra_moto_lavoura.png";
+import planejasafraPc from "../assets/planejasafra_monitor_pc.png";
+import planejasafraPlan from "../assets/planejasafra_planning.png";
+import planejasafraMobile from "../assets/planejasafra_smartphone.png";
+import mapeiasafraLogo from "../assets/mapeiasafra_logo.png";
+import vigiapecuariaLogo from "../assets/vigiapecuaria_logo.png";
 
 export const SOLUCOES = [
   {
@@ -8,35 +16,89 @@ export const SOLUCOES = [
     descricao:
       "Alertas operacionais de pulverização, colheita e plantio com base em dados climáticos por talhão. Saiba exatamente o que fazer no campo nos próximos 7 dias.",
     cor:      COR.verde,
-    icone:    "🌦",
+    icone:    "🌦️",
     status:   "Disponível",
     link:     "https://vigiasafra.com.br/out.html",
-    imagem:   mockupVigiaSafra,
-    features: ["Alertas de pulverização", "Janelas de colheita", "Risco de doenças", "Previsão 7 dias"],
+    imagem:   vigiasafraPc,
+    galeria:  [vigiasafraPc, vigiasafraPc01, vigiasafraMoto],
+    features: [
+      "Monitoramento Climático",
+      "Gerenciamento de Operações Agrícolas",
+      "Abertura de Ordens de Serviço",
+      "Plantio/Aplicação/Colheita",
+      "Estimativas de Produção",
+      "Monitoramento Fitossanitário (Mobile Offline)",
+      "Relatórios Agrícolas",
+      "Gestão de dados climáticos, coleta de pluviômetros offline mobile",
+      "Caderno de campo para anotações georreferenciadas",
+    ],
   },
   {
-    nome:      "GeoSafra",
-    categoria: "Gestão de Talhões",
+    nome:      "PlanejaSafra",
+    categoria: "Planejamento de Safra",
     descricao:
-      "Mapeamento inteligente de áreas agrícolas com importação de KML, análise de solo e histórico de produtividade por talhão.",
+      "Planejamento completo de insumos, áreas e custos por safra. Do planejamento de compras ao comparativo de fornecedores, tudo em um só lugar.",
     cor:      COR.verdeClaro,
-    icone:    "🗺",
+    icone:    "📋",
     status:   "Em breve",
     link:     "#",
-    imagem:   null,
-    features: ["Importação KML", "Análise de solo", "Histórico de safras", "Relatórios técnicos"],
+    imagem:   planejasafraPc,
+    galeria:  [planejasafraPc, planejasafraPlan, planejasafraMobile],
+    features: [
+      "Planejamento de Pacotes de Insumos",
+      "Definição de áreas planejadas por variedade e cultura",
+      "Insumos programados por tecnologia agrícola e tipo de aplicação",
+      "Gerador de volume de compra de insumos por cliente",
+      "Recurso para preenchimento de preços dos produtos (Acesso externo para revendas)",
+      "Tela de Comparativo de Valores de Compra por fornecedor",
+      "Indicadores de Custo de Planejamento por Classe de produto (Herbicida, Fungicida, adubos, sementes, corretivos, biológicos e outros.)",
+      "Histórico de Planejamento e compras de safras anteriores",
+    ],
   },
   {
-    nome:      "MarketSafra",
-    categoria: "Inteligência de Mercado",
+    nome:      "MapeiaSafra",
+    categoria: "Mapeamento Geográfico",
     descricao:
-      "Preços de commodities em tempo real, análise de tendências e alertas de melhores janelas de venda para maximizar a rentabilidade.",
+      "Aplicativo offline para demarcação de áreas e distâncias com precisão. Mapeie, salve e exporte seus talhões em múltiplos formatos.",
     cor:      COR.cinza,
-    icone:    "📈",
+    icone:    "🗺️",
     status:   "Em breve",
     link:     "#",
-    imagem:   null,
-    features: ["Preços ao vivo", "Análise de tendências", "Alertas de venda", "Histórico de cotações"],
+    imagem:   mapeiasafraLogo,
+    galeria:  [mapeiasafraLogo],
+    features: [
+      "Aplicativo Offline para Demarcação de áreas e distâncias",
+      "Salvar rotas / Pontos / Polígonos",
+      "Definir cores para marcadores e talhões",
+      "Mapeamento via Smartphone/Tablet",
+      "Integração com dispositivos GPS",
+      "Exportação de Arquivos mapeados em formato: KML / KMZ / SHP e outros",
+    ],
+  },
+  {
+    nome:      "Vigia@Pecuária",
+    categoria: "Gestão Pecuária",
+    descricao:
+      "Gerenciamento completo das atividades pecuárias, do cadastro de animais ao controle de pastagens e rastreabilidade.",
+    cor:      "#c8a84b",
+    icone:    "🐄",
+    status:   "Em breve",
+    link:     "#",
+    imagem:   vigiapecuariaLogo,
+    galeria:  [vigiapecuariaLogo],
+    features: [
+      "Gerenciamento das atividades pecuárias",
+      "Cadastro de Animais",
+      "Cadastro de Pastagens/Piquetes/Baias",
+      "Controle de Aplicação de insumos",
+      "Rastreabilidade de Animais",
+      "Gestão de Animais por Pasto",
+      "Apontamentos de Nascimentos",
+      "Apontamentos de Morte Acidental ou para Consumo",
+      "Apontamentos de utilização de Medicamentos",
+      "Monitoramento e lançamento de altura de pastos",
+      "Pesagens de Animais (Entrada e Saída)",
+    ],
   },
 ];
 

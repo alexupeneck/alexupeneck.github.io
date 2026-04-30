@@ -1,9 +1,7 @@
-import { useState } from "react";
 import { COR } from "../constants/cores";
 import LOGO_BASE64 from "../assets/logo";
 
 export default function Navbar({ scrollY }) {
-  const [menuAberto, setMenuAberto] = useState(false);
   const comFundo = scrollY > 50;
 
   return (
@@ -38,7 +36,6 @@ export default function Navbar({ scrollY }) {
               { label: "Soluções",      href: "#solucoes" },
               { label: "Como Funciona", href: "#como-funciona" },
               { label: "Benefícios",    href: "#beneficios" },
-              { label: "Contato",       href: "#contato" },
             ].map((item) => (
               <a
                 key={item.href}
@@ -58,11 +55,9 @@ export default function Navbar({ scrollY }) {
             ))}
           </div>
 
-          {/* Botão CTA */}
+          {/* Botão Contato */}
           <a
-            href="https://app.vigiasafra.com.br/cadastro"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="#contato"
             style={{
               background:     COR.verde,
               color:          COR.branco,
@@ -76,7 +71,7 @@ export default function Navbar({ scrollY }) {
             onMouseEnter={(e) => (e.target.style.background = COR.verdeEscuro)}
             onMouseLeave={(e) => (e.target.style.background = COR.verde)}
           >
-            Começar grátis
+            Contato
           </a>
         </div>
       </div>

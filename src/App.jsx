@@ -33,7 +33,19 @@ export default function App() {
 
         html { scroll-behavior: smooth; }
 
+        /* Compensa a navbar fixa no scroll por âncora */
+        section[id], footer[id] {
+          scroll-margin-top: 112px;
+        }
+
         a:focus-visible { outline: 2px solid ${COR.verdeClaro}; outline-offset: 2px; }
+
+        /* Scrollbar customizada */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: ${COR.fundoBorda}; border-radius: 3px; }
+        ::-webkit-scrollbar-thumb:hover { background: ${COR.cinza}; }
+        * { scrollbar-width: thin; scrollbar-color: ${COR.fundoBorda} transparent; }
 
         .navbar-logo { margin-left: -32px; }
         .footer-logo { margin-left: -32px; }
@@ -58,7 +70,13 @@ export default function App() {
           .hero-container { padding: 0 20px !important; }
 
           /* Ecossistema — card empilha */
-          .ecosistema-card { flex-direction: column !important; padding: 32px 24px !important; margin: 0 20px !important; }
+          .ecosistema-card {
+            flex-direction: column !important;
+            margin: 0 16px !important;
+            height: auto !important;
+          }
+          .ecosistema-img { height: 240px !important; flex: none !important; }
+          .ecosistema-content { padding: 24px !important; overflow: visible !important; }
         }
 
         @media (max-width: 480px) {

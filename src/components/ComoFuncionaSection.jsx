@@ -35,7 +35,7 @@ export default function ComoFuncionaSection() {
       </video>
       <div style={{ maxWidth: 1600, margin: "0 auto", position: "relative" }}>
         <div style={{ textAlign: "center", marginBottom: 64 }}>
-          <div style={{ color: COR.verdeClaro, fontWeight: 600, fontSize: 13, letterSpacing: "0.1em", marginBottom: 12 }}>
+          <div style={{ color: COR.verdeClaro, fontWeight: 700, fontSize: 18, letterSpacing: "0.08em", marginBottom: 12 }}>
             COMO FUNCIONA
           </div>
           <h2
