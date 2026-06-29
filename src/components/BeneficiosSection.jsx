@@ -26,23 +26,6 @@ export default function BeneficiosSection() {
             <p style={{ color: COR.brancoOp60, fontSize: 16, lineHeight: 1.7, margin: "0 0 32px" }}>
               Cada ferramenta foi desenvolvida com base nas reais necessidades de produtores e agrônomos brasileiros. Juntas, elas formam a plataforma mais completa para gestão agrícola inteligente.
             </p>
-            <a
-              href="mailto:comercial@xsafra.com.br"
-              style={{
-                display:        "inline-flex",
-                alignItems:     "center",
-                gap:            8,
-                background:     COR.verde,
-                color:          COR.branco,
-                padding:        "12px 24px",
-                borderRadius:   8,
-                textDecoration: "none",
-                fontSize:       15,
-                fontWeight:     600,
-              }}
-            >
-              Fale com um especialista →
-            </a>
           </div>
 
           {/* Grade de benefícios */}

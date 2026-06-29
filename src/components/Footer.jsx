@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { COR } from "../constants/cores";
 import LOGO_BASE64 from "../assets/logo";
 
@@ -33,9 +34,17 @@ export default function Footer() {
               SOLUÇÕES
             </h4>
             <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: 10 }}>
-              {["VigiaSafra", "PlanejaSafra", "MapeiaSafra", "Vigia@Pecuária"].map((s) => (
-                <li key={s}>
-                  <a href="#solucoes" style={{ color: COR.brancoOp60, textDecoration: "none", fontSize: 14 }}>{s}</a>
+              {[
+                { label: "VigiaSafra",   href: "/vigiasafra",  interno: true },
+                { label: "PlanejaSafra", href: "#solucoes",    interno: false },
+                { label: "MapeiaSafra",  href: "#solucoes",    interno: false },
+                { label: "Vigia@Pecuária", href: "#solucoes",  interno: false },
+              ].map((s) => (
+                <li key={s.label}>
+                  {s.interno
+                    ? <Link to={s.href} style={{ color: COR.brancoOp60, textDecoration: "none", fontSize: 14 }}>{s.label}</Link>
+                    : <a href={s.href} style={{ color: COR.brancoOp60, textDecoration: "none", fontSize: 14 }}>{s.label}</a>
+                  }
                 </li>
               ))}
             </ul>
@@ -48,13 +57,16 @@ export default function Footer() {
             </h4>
             <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: 10 }}>
               {[
-                { label: "Sobre nós",     href: "#" },
-                { label: "Contato",       href: "mailto:comercial@xsafra.com.br" },
-                { label: "Privacidade",   href: "#" },
-                { label: "Termos de uso", href: "#" },
+                { label: "Sobre nós",               href: "/sobre",        interno: true },
+                { label: "Contato",                 href: "mailto:comercial@xsafra.com.br", interno: false },
+                { label: "Política de Privacidade", href: "/privacidade",  interno: true },
+                { label: "Termos de uso",           href: "/termos",       interno: true },
               ].map((l) => (
                 <li key={l.label}>
-                  <a href={l.href} style={{ color: COR.brancoOp60, textDecoration: "none", fontSize: 14 }}>{l.label}</a>
+                  {l.interno
+                    ? <Link to={l.href} style={{ color: COR.brancoOp60, textDecoration: "none", fontSize: 14 }}>{l.label}</Link>
+                    : <a href={l.href} style={{ color: COR.brancoOp60, textDecoration: "none", fontSize: 14 }}>{l.label}</a>
+                  }
                 </li>
               ))}
             </ul>

@@ -137,24 +137,6 @@ export default function HeroSection() {
           >
             Explorar soluções
           </a>
-          <a
-            href="mailto:comercial@xsafra.com.br"
-            style={{
-              background:     "transparent",
-              color:          COR.branco,
-              padding:        "14px 32px",
-              borderRadius:   8,
-              textDecoration: "none",
-              fontSize:       16,
-              fontWeight:     600,
-              border:         `1.5px solid ${COR.brancoOp20}`,
-              transition:     "border-color 0.2s, transform 0.15s",
-            }}
-            onMouseEnter={(e) => { e.target.style.borderColor = COR.branco; e.target.style.transform = "translateY(-2px)"; }}
-            onMouseLeave={(e) => { e.target.style.borderColor = COR.brancoOp20; e.target.style.transform = "translateY(0)"; }}
-          >
-            Falar com especialista
-          </a>
         </div>
 
         {/* Métricas rápidas */}

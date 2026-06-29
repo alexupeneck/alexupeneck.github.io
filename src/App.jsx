@@ -77,6 +77,8 @@ export default function App() {
           }
           .ecosistema-img { height: 240px !important; flex: none !important; }
           .ecosistema-content { padding: 24px !important; overflow: visible !important; }
+          /* Sobre nós — empilha em mobile */
+          .sobre-grid { grid-template-columns: 1fr !important; }
         }
 
         @media (max-width: 480px) {

@@ -1,7 +1,12 @@
 import { useState, useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 import { COR } from "../constants/cores";
 import { SOLUCOES } from "../constants/dados";
 import { ICONES_SOLUCOES } from "./Icones";
+
+const ROTAS_INTERNAS = {
+  "VigiaSafra": "/vigiasafra",
+};
 
 const DURACAO = 10000;
 const DURACAO_GALERIA = 3000; // troca de imagem a cada 3s
@@ -253,7 +258,26 @@ export default function EcosistemaSection() {
             ))}
           </ul>
 
-          {disponivel ? (
+          {ROTAS_INTERNAS[solucao.nome] ? (
+            <Link
+              to={ROTAS_INTERNAS[solucao.nome]}
+              style={{
+                display:        "inline-flex",
+                alignItems:     "center",
+                gap:            8,
+                background:     solucao.cor,
+                color:          COR.fundo,
+                padding:        "14px 32px",
+                borderRadius:   8,
+                textDecoration: "none",
+                fontSize:       15,
+                fontWeight:     700,
+                alignSelf:      "flex-start",
+              }}
+            >
+              Acessar solução →
+            </Link>
+          ) : disponivel ? (
             <a
               href={solucao.link}
               target="_blank"

@@ -1,8 +1,11 @@
+import { useState } from "react";
 import { COR } from "../constants/cores";
 import LOGO_BASE64 from "../assets/logo";
+import ContatoPopup from "./ContatoPopup";
 
 export default function Navbar({ scrollY }) {
   const comFundo = scrollY > 50;
+  const [popupAberto, setPopupAberto] = useState(false);
 
   return (
     <nav
@@ -56,23 +59,27 @@ export default function Navbar({ scrollY }) {
           </div>
 
           {/* Botão Contato */}
-          <a
-            href="#contato"
+          <button
+            onClick={() => setPopupAberto(true)}
+            className="navbar-cta"
             style={{
-              background:     COR.verde,
-              color:          COR.branco,
-              padding:        "13px 28px",
-              borderRadius:   8,
-              textDecoration: "none",
-              fontSize:       16,
-              fontWeight:     600,
-              transition:     "background 0.2s",
+              background:   COR.verde,
+              color:        COR.branco,
+              padding:      "13px 28px",
+              borderRadius: 8,
+              border:       "none",
+              fontSize:     16,
+              fontWeight:   600,
+              cursor:       "pointer",
+              transition:   "background 0.2s",
             }}
             onMouseEnter={(e) => (e.target.style.background = COR.verdeEscuro)}
             onMouseLeave={(e) => (e.target.style.background = COR.verde)}
           >
             Contato
-          </a>
+          </button>
+
+          {popupAberto && <ContatoPopup onClose={() => setPopupAberto(false)} />}
         </div>
       </div>
     </nav>
