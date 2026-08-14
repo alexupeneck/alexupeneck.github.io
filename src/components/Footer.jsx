@@ -1,10 +1,14 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { COR } from "../constants/cores";
 import LOGO_BASE64 from "../assets/logo";
+import ContatoPopup from "./ContatoPopup";
 
 export default function Footer() {
+  const [contatoAberto, setContatoAberto] = useState(false);
   return (
     <footer style={{ padding: "60px 24px 32px", background: COR.fundoSecund, borderTop: `1px solid ${COR.fundoBorda}` }}>
+      {contatoAberto && <ContatoPopup onClose={() => setContatoAberto(false)} />}
       <div style={{ maxWidth: 1600, margin: "0 auto" }}>
         <div
           style={{
@@ -57,16 +61,12 @@ export default function Footer() {
             </h4>
             <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: 10 }}>
               {[
-                { label: "Sobre nós",               href: "/sobre",        interno: true },
-                { label: "Contato",                 href: "mailto:comercial@xsafra.com.br", interno: false },
-                { label: "Política de Privacidade", href: "/privacidade",  interno: true },
-                { label: "Termos de uso",           href: "/termos",       interno: true },
+                { label: "Sobre nós",               href: "/sobre",       interno: true },
+                { label: "Política de Privacidade", href: "/privacidade", interno: true },
+                { label: "Termos de uso",           href: "/termos",      interno: true },
               ].map((l) => (
                 <li key={l.label}>
-                  {l.interno
-                    ? <Link to={l.href} style={{ color: COR.brancoOp60, textDecoration: "none", fontSize: 14 }}>{l.label}</Link>
-                    : <a href={l.href} style={{ color: COR.brancoOp60, textDecoration: "none", fontSize: 14 }}>{l.label}</a>
-                  }
+                  <Link to={l.href} style={{ color: COR.brancoOp60, textDecoration: "none", fontSize: 14 }}>{l.label}</Link>
                 </li>
               ))}
             </ul>
@@ -78,6 +78,11 @@ export default function Footer() {
               CONTATO
             </h4>
             <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: 10 }}>
+              <li>
+                <button onClick={() => setContatoAberto(true)} style={{ background: "none", border: "none", color: COR.brancoOp60, fontSize: 14, cursor: "pointer", padding: 0, fontFamily: "inherit", textAlign: "left" }}>
+                  Formulário
+                </button>
+              </li>
               <li>
                 <a href="mailto:comercial@xsafra.com.br" style={{ color: COR.brancoOp60, textDecoration: "none", fontSize: 14 }}>
                   comercial@xsafra.com.br

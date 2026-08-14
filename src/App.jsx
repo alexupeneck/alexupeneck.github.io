@@ -5,7 +5,6 @@ import HeroSection from "./components/HeroSection";
 import EcosistemaSection from "./components/EcosistemaSection";
 import ComoFuncionaSection from "./components/ComoFuncionaSection";
 import BeneficiosSection from "./components/BeneficiosSection";
-import CTASection from "./components/CTASection";
 import Footer from "./components/Footer";
 
 export default function App() {
@@ -57,6 +56,15 @@ export default function App() {
           /* Navbar — esconde links, mantém só logo e botão */
           .nav-links-desktop { display: none !important; }
 
+          /* Navbar mobile */
+          .navbar-container { height: 64px !important; }
+          .navbar-cta { padding: 8px 16px !important; font-size: 13px !important; }
+
+          /* Seções — padding lateral reduzido */
+          .footer-grid,
+          #beneficios,
+          #como-funciona { padding-left: 16px !important; padding-right: 16px !important; }
+
           /* Footer — empilha colunas */
           .footer-grid { grid-template-columns: 1fr 1fr !important; }
 
@@ -93,7 +101,6 @@ export default function App() {
         <EcosistemaSection />
         <ComoFuncionaSection />
         <BeneficiosSection />
-        <CTASection />
         <Footer />
       </div>
     </>

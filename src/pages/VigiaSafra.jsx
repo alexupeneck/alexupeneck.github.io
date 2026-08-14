@@ -8,7 +8,6 @@ import imgMoto from "../assets/vigiasafra_moto_lavoura.png";
 import ContatoPopup from "../components/ContatoPopup";
 
 const WHATSAPP_NUM = "5500000000000";
-const WA_DEMO = `https://wa.me/${WHATSAPP_NUM}?text=${encodeURIComponent("Olá, gostaria de agendar uma demonstração do VigiaSafra!")}`;
 
 const FEATURES = [
   { icone: "🌤", titulo: "Monitoramento Climático", desc: "Alertas de pulverização, janelas de colheita e risco de doenças com base em dados meteorológicos por talhão." },
@@ -97,24 +96,21 @@ export default function VigiaSafraPage() {
               Alertas operacionais de pulverização, colheita e plantio com base em dados climáticos por talhão. Saiba exatamente o que fazer no campo nos próximos 7 dias.
             </p>
             <div style={{ display: "flex", gap: 14, flexWrap: "wrap" }}>
-              <a href="https://app.vigiasafra.com.br/cadastro" target="_blank" rel="noopener noreferrer"
-                style={{ background: COR.verde, color: COR.branco, padding: "14px 32px", borderRadius: 8, textDecoration: "none", fontSize: 16, fontWeight: 700 }}>
-                Criar conta grátis
-              </a>
-              <a href={WA_DEMO} target="_blank" rel="noopener noreferrer"
-                style={{ background: "transparent", color: COR.branco, padding: "14px 32px", borderRadius: 8, textDecoration: "none", fontSize: 16, fontWeight: 600, border: `1.5px solid ${COR.brancoOp20}` }}>
+              <button
+                onClick={() => setPopupAberto(true)}
+                style={{ background: COR.verde, color: COR.branco, padding: "14px 32px", borderRadius: 8, border: "none", fontSize: 16, fontWeight: 700, cursor: "pointer" }}
+              >
                 Solicitar demonstração →
-              </a>
-            </div>
-            {/* Selos */}
-            <div style={{ display: "flex", gap: 20, marginTop: 28, flexWrap: "wrap" }}>
-              {["15 dias grátis", "Sem cartão de crédito", "Suporte incluso"].map(s => (
-                <span key={s} style={{ color: COR.brancoOp60, fontSize: 13, display: "flex", alignItems: "center", gap: 6 }}>
-                  <span style={{ color: COR.verde, fontWeight: 700 }}>✓</span> {s}
-                </span>
-              ))}
+              </button>
             </div>
           </div>
+
+          {popupAberto && (
+            <ContatoPopup
+              onClose={() => setPopupAberto(false)}
+              mensagemWa="Olá, gostaria de agendar uma demonstração do VigiaSafra!"
+            />
+          )}
 
           {/* Galeria */}
           <div style={{ position: "relative", borderRadius: 16, overflow: "hidden", aspectRatio: "16/10" }}>
@@ -154,31 +150,6 @@ export default function VigiaSafraPage() {
                   <p style={{ color: COR.brancoOp60, fontSize: 14, lineHeight: 1.7, margin: 0 }}>{f.desc}</p>
                 </div>
               ))}
-            </div>
-          </div>
-        </section>
-
-        {/* CTA Final */}
-        <section className="vs-section" style={{ padding: "80px 40px", borderTop: `3px solid ${COR.verdeClaro}`, position: "relative", overflow: "hidden" }}>
-          <div aria-hidden="true" style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%,-50%)", width: 700, height: 400, borderRadius: "50%", background: `radial-gradient(ellipse, ${COR.verdeOp20} 0%, transparent 70%)`, pointerEvents: "none" }} />
-          <div className="vs-cta-inner" style={{ maxWidth: 1600, margin: "0 auto", position: "relative", display: "flex", alignItems: "center", justifyContent: "space-between", gap: 48, flexWrap: "wrap" }}>
-            <div>
-              <h2 style={{ fontSize: "clamp(28px, 4vw, 48px)", fontWeight: 800, color: COR.branco, marginBottom: 16, fontFamily: "'Inter', sans-serif" }}>
-                Pronto para começar?
-              </h2>
-              <p style={{ color: COR.brancoOp60, fontSize: 17, lineHeight: 1.7, maxWidth: 500 }}>
-                15 dias grátis, sem cartão de crédito. Nossa equipe está pronta para configurar tudo com você.
-              </p>
-            </div>
-            <div style={{ display: "flex", flexDirection: "column", gap: 12, alignItems: "flex-start" }}>
-              <a href="https://app.vigiasafra.com.br/cadastro" target="_blank" rel="noopener noreferrer"
-                style={{ background: COR.verdeClaro, color: COR.fundo, padding: "16px 40px", borderRadius: 8, textDecoration: "none", fontSize: 16, fontWeight: 800, whiteSpace: "nowrap" }}>
-                Criar conta grátis →
-              </a>
-              <a href="https://vigiasafra.com.br" target="_blank" rel="noopener noreferrer"
-                style={{ color: COR.brancoOp60, fontSize: 13, textDecoration: "none", textAlign: "center" }}>
-                vigiasafra.com.br
-              </a>
             </div>
           </div>
         </section>

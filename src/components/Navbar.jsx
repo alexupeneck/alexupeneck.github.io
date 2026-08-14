@@ -21,7 +21,7 @@ export default function Navbar({ scrollY }) {
       }}
     >
       <div style={{ maxWidth: 1600, margin: "0 auto", padding: "0 40px", width: "100%", boxSizing: "border-box" }}>
-        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", height: 112 }}>
+        <div className="navbar-container" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", height: 112 }}>
 
           {/* Logo */}
           <a href="#" style={{ display: "flex", alignItems: "center", gap: 12, textDecoration: "none" }}>
