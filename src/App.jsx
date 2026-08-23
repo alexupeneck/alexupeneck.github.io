@@ -30,7 +30,8 @@ export default function App() {
           -webkit-font-smoothing: antialiased;
         }
 
-        html { scroll-behavior: smooth; }
+        html { scroll-behavior: smooth; overflow-x: hidden; }
+        body { overflow-x: hidden; }
 
         /* Compensa a navbar fixa no scroll por âncora */
         section[id], footer[id] {

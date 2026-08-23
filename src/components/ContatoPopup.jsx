@@ -56,7 +56,7 @@ export default function ContatoPopup({ onClose, mensagemWa }) {
   return (
     <>
       {/* Overlay */}
-      <div onClick={onClose} style={{ position: "fixed", inset: 0, background: "rgba(0,0,0,0.65)", zIndex: 2000, backdropFilter: "blur(4px)" }} />
+      <div onClick={onClose} style={{ position: "fixed", inset: 0, background: "rgba(0,0,0,0.65)", zIndex: 2000, backdropFilter: "blur(4px)", overflowX: "hidden" }} />
 
       {/* Modal */}
       <div style={{
@@ -69,10 +69,12 @@ export default function ContatoPopup({ onClose, mensagemWa }) {
         border:       `1px solid ${COR.fundoBorda}`,
         borderRadius: 20,
         padding:      "40px 40px 32px",
-        width:        "min(460px, 94vw)",
+        width:        "min(460px, 92vw)",
+        maxWidth:     "92vw",
         maxHeight:    "90vh",
         overflowY:    "auto",
         boxShadow:    "0 24px 64px rgba(0,0,0,0.5)",
+        boxSizing:    "border-box",
       }}>
         {/* Fechar */}
         <button onClick={onClose} style={{ position: "absolute", top: 16, right: 16, background: "transparent", border: "none", color: COR.cinza, fontSize: 20, cursor: "pointer", lineHeight: 1, padding: 4 }} aria-label="Fechar">✕</button>
