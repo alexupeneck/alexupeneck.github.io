@@ -6,6 +6,7 @@ import imgPc from "../assets/vigiasafra_monitor_pc.png";
 import imgPc01 from "../assets/vigiasafra_monitor_pc_01.png.png";
 import imgMoto from "../assets/vigiasafra_moto_lavoura.png";
 import ContatoPopup from "../components/ContatoPopup";
+import Footer from "../components/Footer";
 
 const WHATSAPP_NUM = "5500000000000";
 
@@ -154,6 +155,7 @@ export default function VigiaSafraPage() {
           </div>
         </section>
 
+        <Footer />
       </div>
     </>
   );

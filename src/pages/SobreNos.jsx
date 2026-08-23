@@ -4,7 +4,7 @@ import { COR } from "../constants/cores";
 import LOGO_BASE64 from "../assets/logo";
 
 const PARAGRAFOS = [
-  "A XSafra é um ecossistema de soluções digitais criado para apoiar a gestão da agricultura e da pecuária de forma simples, integrada e eficiente.",
+  "XSafra é um ecossistema de soluções digitais criado para apoiar a gestão da agricultura e da pecuária de forma simples, integrada e eficiente.",
   "Nosso objetivo é aproximar a tecnologia da realidade do campo, oferecendo ferramentas que ajudam produtores, equipes técnicas e gestores a acompanharem suas operações com mais controle, organização e segurança na tomada de decisão.",
   null, // renderizado separadamente
   "Acreditamos que a transformação digital no agronegócio precisa ser prática, acessível e conectada às necessidades de quem vive a rotina da produção. Por isso, nossas soluções são desenvolvidas pensando na usabilidade, na mobilidade e na confiabilidade das informações, inclusive em ambientes onde a operação offline é essencial.",
@@ -172,17 +172,32 @@ export default function SobreNos() {
                   </div>
                   <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
                     {SOLUCOES.map((s) => (
-                      <div key={s} style={{
-                        display:      "flex",
-                        alignItems:   "center",
-                        gap:          12,
-                        padding:      "12px 16px",
-                        background:   COR.fundoBorda,
-                        borderRadius: 10,
-                      }}>
-                        <span style={{ width: 8, height: 8, borderRadius: "50%", background: COR.verdeClaro, flexShrink: 0 }} />
-                        <span style={{ color: COR.branco, fontSize: 14, fontWeight: 600 }}>{s}</span>
-                      </div>
+                      s === "VigiaSafra" ? (
+                        <Link key={s} to="/vigiasafra" style={{
+                          display:      "flex",
+                          alignItems:   "center",
+                          gap:          12,
+                          padding:      "12px 16px",
+                          background:   COR.fundoBorda,
+                          borderRadius: 10,
+                          textDecoration: "none",
+                        }}>
+                          <span style={{ width: 8, height: 8, borderRadius: "50%", background: COR.verdeClaro, flexShrink: 0 }} />
+                          <span style={{ color: COR.branco, fontSize: 14, fontWeight: 600 }}>{s} →</span>
+                        </Link>
+                      ) : (
+                        <div key={s} style={{
+                          display:      "flex",
+                          alignItems:   "center",
+                          gap:          12,
+                          padding:      "12px 16px",
+                          background:   COR.fundoBorda,
+                          borderRadius: 10,
+                        }}>
+                          <span style={{ width: 8, height: 8, borderRadius: "50%", background: COR.verdeClaro, flexShrink: 0 }} />
+                          <span style={{ color: COR.branco, fontSize: 14, fontWeight: 600 }}>{s}</span>
+                        </div>
+                      )
                     ))}
                   </div>
 
