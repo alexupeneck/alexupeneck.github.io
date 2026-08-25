@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import { COR } from "../constants/cores";
 
 const WHATSAPP_NUM = "5500000000000"; // substitua pelo número real
@@ -32,6 +33,20 @@ export default function ContatoPopup({ onClose, mensagemWa }) {
     return () => window.removeEventListener("keydown", onKey);
   }, [onClose]);
 
+  // Lock body scroll and prevent horizontal overflow while popup is open
+  useEffect(() => {
+    const html = document.documentElement;
+    const body = document.body;
+    const prevOverflow = body.style.overflow;
+    const prevHtmlOverflow = html.style.overflowX;
+    body.style.overflow = "hidden";
+    html.style.overflowX = "hidden";
+    return () => {
+      body.style.overflow = prevOverflow;
+      html.style.overflowX = prevHtmlOverflow;
+    };
+  }, []);
+
   function handleChange(e) {
     setForm(prev => ({ ...prev, [e.target.name]: e.target.value }));
   }
@@ -53,13 +68,21 @@ export default function ContatoPopup({ onClose, mensagemWa }) {
     { name: "regiao",   label: "Região / Estado",     type: "text",  required: false, placeholder: "Ex: Mato Grosso, GO, SP..." },
   ];
 
-  return (
+  return createPortal(
     <>
+      {/* Responsive popup styles */}
+      <style>{`
+        .contato-modal { padding: 40px 40px 32px; }
+        @media (max-width: 480px) {
+          .contato-modal { padding: 28px 20px 24px !important; }
+        }
+      `}</style>
+
       {/* Overlay */}
-      <div onClick={onClose} style={{ position: "fixed", inset: 0, background: "rgba(0,0,0,0.65)", zIndex: 2000, backdropFilter: "blur(4px)", overflowX: "hidden" }} />
+      <div onClick={onClose} style={{ position: "fixed", inset: 0, background: "rgba(0,0,0,0.65)", zIndex: 2000, backdropFilter: "blur(4px)" }} />
 
       {/* Modal */}
-      <div style={{
+      <div className="contato-modal" style={{
         position:     "fixed",
         top:          "50%",
         left:         "50%",
@@ -68,11 +91,11 @@ export default function ContatoPopup({ onClose, mensagemWa }) {
         background:   COR.fundoCard,
         border:       `1px solid ${COR.fundoBorda}`,
         borderRadius: 20,
-        padding:      "40px 40px 32px",
         width:        "min(460px, 92vw)",
         maxWidth:     "92vw",
         maxHeight:    "90vh",
         overflowY:    "auto",
+        overflowX:    "hidden",
         boxShadow:    "0 24px 64px rgba(0,0,0,0.5)",
         boxSizing:    "border-box",
       }}>
@@ -180,6 +203,7 @@ export default function ContatoPopup({ onClose, mensagemWa }) {
         )}
 
       </div>
-    </>
+    </>,
+    document.body
   );
 }

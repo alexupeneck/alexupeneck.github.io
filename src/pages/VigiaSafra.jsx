@@ -58,7 +58,7 @@ export default function VigiaSafraPage() {
         }
       `}</style>
 
-      <div style={{ background: COR.fundo, minHeight: "100vh" }}>
+      <div style={{ background: COR.fundo, minHeight: "100vh", overflowX: "hidden" }}>
 
         {/* Navbar */}
         <nav style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 1000, background: COR.fundoSecund, borderBottom: `1px solid ${COR.fundoBorda}` }}>
@@ -75,10 +75,15 @@ export default function VigiaSafraPage() {
                 Contato
               </button>
             </div>
-
-            {popupAberto && <ContatoPopup onClose={() => setPopupAberto(false)} />}
           </div>
         </nav>
+
+        {popupAberto && (
+          <ContatoPopup
+            onClose={() => setPopupAberto(false)}
+            mensagemWa="Olá, gostaria de agendar uma demonstração do VigiaSafra!"
+          />
+        )}
 
         {/* Hero */}
         <div className="vs-hero">
@@ -105,13 +110,6 @@ export default function VigiaSafraPage() {
               </button>
             </div>
           </div>
-
-          {popupAberto && (
-            <ContatoPopup
-              onClose={() => setPopupAberto(false)}
-              mensagemWa="Olá, gostaria de agendar uma demonstração do VigiaSafra!"
-            />
-          )}
 
           {/* Galeria */}
           <div style={{ position: "relative", borderRadius: 16, overflow: "hidden", aspectRatio: "16/10" }}>
