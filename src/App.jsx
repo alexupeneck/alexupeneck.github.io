@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { COR } from "./constants/cores";
 import Navbar from "./components/Navbar";
 import HeroSection from "./components/HeroSection";
+import MapaBrasil from "./components/MapaBrasil";
 import EcosistemaSection from "./components/EcosistemaSection";
 import ComoFuncionaSection from "./components/ComoFuncionaSection";
 import BeneficiosSection from "./components/BeneficiosSection";
@@ -99,6 +100,7 @@ export default function App() {
       <div style={{ background: COR.fundo, minHeight: "100vh" }}>
         <Navbar scrollY={scrollY} />
         <HeroSection />
+        <MapaBrasil />
         <EcosistemaSection />
         <ComoFuncionaSection />
         <BeneficiosSection />
