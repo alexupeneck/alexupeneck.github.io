@@ -88,11 +88,6 @@ export default function Footer() {
                   comercial@xsafra.com.br
                 </a>
               </li>
-              <li>
-                <a href="https://vigiasafra.com.br" target="_blank" rel="noopener noreferrer" style={{ color: COR.brancoOp60, textDecoration: "none", fontSize: 14 }}>
-                  vigiasafra.com.br
-                </a>
-              </li>
             </ul>
           </div>
         </div>

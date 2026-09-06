@@ -40,6 +40,8 @@ export default function App() {
         }
 
         a:focus-visible { outline: 2px solid ${COR.verdeClaro}; outline-offset: 2px; }
+        button:focus-visible { outline: 2px solid ${COR.verdeClaro}; outline-offset: 2px; }
+        input:focus-visible { outline: 2px solid ${COR.verdeClaro}; outline-offset: 0; }
 
         /* Scrollbar customizada */
         ::-webkit-scrollbar { width: 6px; }
@@ -51,6 +53,21 @@ export default function App() {
         .navbar-logo { margin-left: -32px; }
         .footer-logo { margin-left: -32px; }
 
+        @media (max-width: 1024px) {
+          /* Ecossistema — card empilha, imagem proporcional à largura (sem corte) */
+          .ecosistema-card {
+            flex-direction: column !important;
+            margin: 0 24px !important;
+            height: auto !important;
+          }
+          .ecosistema-img {
+            flex: none !important;
+            height: auto !important;
+            aspect-ratio: 4 / 3 !important;
+          }
+          .ecosistema-content { padding: 32px !important; overflow: visible !important; }
+        }
+
         @media (max-width: 768px) {
           .navbar-logo { margin-left: 0; }
           .footer-logo { margin-left: 0; }
@@ -61,6 +78,10 @@ export default function App() {
           /* Navbar mobile */
           .navbar-container { height: 64px !important; }
           .navbar-cta { padding: 8px 16px !important; font-size: 13px !important; }
+          .navbar-hamburguer { display: flex !important; }
+          .navbar-hamburguer { top: 0; }
+          .navbar-drawer { display: flex !important; }
+          .navbar-drawer { top: 64px !important; max-height: calc(100vh - 64px) !important; }
 
           /* Seções — padding lateral reduzido */
           .footer-grid,
@@ -94,6 +115,19 @@ export default function App() {
         @media (max-width: 480px) {
           .footer-grid { grid-template-columns: 1fr !important; }
           .beneficios-grid { grid-template-columns: 1fr !important; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+          html { scroll-behavior: auto; }
+          *,
+          *::before,
+          *::after {
+            animation-duration: 0.01ms !important;
+            animation-iteration-count: 1 !important;
+            transition-duration: 0.01ms !important;
+            transition-delay: 0 !important;
+            scroll-behavior: auto !important;
+          }
         }
       `}</style>
 

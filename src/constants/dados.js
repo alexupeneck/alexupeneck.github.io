@@ -22,6 +22,7 @@ export const SOLUCOES = [
     imagem:   vigiasafraPc,
     galeria:  [vigiasafraPc, vigiasafraPc01, vigiasafraMoto],
     features: [
+      "Inteligência Artificial",
       "Monitoramento Climático",
       "Gerenciamento de Operações Agrícolas",
       "Abertura de Ordens de Serviço",
@@ -107,21 +108,25 @@ export const BENEFICIOS = [
     titulo: "Dados integrados",
     texto:  "Todas as ferramentas compartilham os mesmos talhões e históricos. Um ecossistema, não ferramentas isoladas.",
     icone:  "⚡",
+    cor:    COR.verde,
   },
   {
     titulo: "Decisões mais rápidas",
     texto:  "Informações consolidadas em um só lugar. Menos tempo analisando dados, mais tempo no campo.",
     icone:  "🎯",
+    cor:    COR.verdeClaro,
   },
   {
     titulo: "Escalável para qualquer operação",
     texto:  "De produtores familiares a grandes empresas rurais. A plataforma cresce com o seu negócio.",
     icone:  "📐",
+    cor:    "#5aa9e6",
   },
   {
     titulo: "Suporte especializado",
     texto:  "Equipe agronômica e técnica pronta para ajudar você a extrair o máximo de cada ferramenta.",
     icone:  "🤝",
+    cor:    "#c8a84b",
   },
 ];
 

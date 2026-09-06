@@ -20,6 +20,7 @@ const FEATURES = [
   { icone: "📄", titulo: "Relatórios Agrícolas", desc: "Geração de relatórios técnicos completos por talhão, safra ou período para análise e compartilhamento." },
   { icone: "🌧", titulo: "Pluviômetros Offline", desc: "Coleta e gestão de dados climáticos com suporte a pluviômetros físicos integrados ao sistema." },
   { icone: "📍", titulo: "Caderno de Campo", desc: "Anotações georreferenciadas diretamente no mapa para registrar observações e ocorrências no campo." },
+  { icone: "🤖", titulo: "Inteligência Artificial: VigiaMind", desc: "Esqueça a análise manual de dezenas de variáveis. O VigiaMind cruza os dados do seu mapa KML importado, o histórico do talhão e o clima em tempo real para entregar recomendações mastigadas." },
 ];
 
 const GALERIA = [imgPc, imgPc01, imgMoto];
@@ -45,8 +46,24 @@ export default function VigiaSafraPage() {
         .vs-logo { height: 88px; width: auto; margin-left: -32px; }
         .vs-hero { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; padding: 160px 40px 80px; max-width: 1600px; margin: 0 auto; }
         .vs-features { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+        .vs-feature-full { grid-column: 1 / -1; }
         @media (max-width: 1024px) {
           .vs-features { grid-template-columns: repeat(2, 1fr) !important; }
+          .vs-feature-full {
+            grid-column: auto !important;
+            display: block !important;
+          }
+          .vs-feature-full > div:first-child {
+            width: auto !important;
+            height: auto !important;
+            border-radius: 0 !important;
+            background: transparent !important;
+            border: none !important;
+            font-size: 32px !important;
+            margin-bottom: 14px !important;
+          }
+          .vs-feature-full h3 { font-size: 16px !important; margin-bottom: 10px !important; }
+          .vs-feature-full p { font-size: 14px !important; }
         }
         @media (max-width: 768px) {
           .vs-logo { height: 72px !important; margin-left: 0 !important; }
@@ -55,6 +72,10 @@ export default function VigiaSafraPage() {
           .vs-features { grid-template-columns: 1fr !important; }
           .vs-section { padding: 60px 20px !important; }
           .vs-cta-inner { flex-direction: column !important; text-align: center !important; }
+          .footer-grid { grid-template-columns: 1fr 1fr !important; }
+        }
+        @media (max-width: 480px) {
+          .footer-grid { grid-template-columns: 1fr !important; }
         }
       `}</style>
 
@@ -122,7 +143,7 @@ export default function VigiaSafraPage() {
             {/* Indicadores */}
             <div style={{ position: "absolute", bottom: 14, left: "50%", transform: "translateX(-50%)", display: "flex", gap: 6 }}>
               {GALERIA.map((_, i) => (
-                <button key={i} onClick={() => setImgAtiva(i)} style={{
+                <button key={i} onClick={() => setImgAtiva(i)} aria-label={`Mostrar imagem ${i + 1} de ${GALERIA.length}`} style={{
                   width: i === imgAtiva ? 20 : 6, height: 6, borderRadius: 3,
                   border: "none", background: i === imgAtiva ? COR.verdeClaro : COR.brancoOp20,
                   cursor: "pointer", padding: 0, transition: "all 0.3s",
@@ -142,13 +163,55 @@ export default function VigiaSafraPage() {
               </h2>
             </div>
             <div className="vs-features">
-              {FEATURES.map((f) => (
-                <div key={f.titulo} style={{ background: COR.fundoCard, border: `1px solid ${COR.fundoBorda}`, borderRadius: 14, padding: 28 }}>
-                  <div style={{ fontSize: 32, marginBottom: 14 }}>{f.icone}</div>
-                  <h3 style={{ fontSize: 16, fontWeight: 700, color: COR.branco, marginBottom: 10 }}>{f.titulo}</h3>
-                  <p style={{ color: COR.brancoOp60, fontSize: 14, lineHeight: 1.7, margin: 0 }}>{f.desc}</p>
-                </div>
-              ))}
+              {FEATURES.map((f, i) => {
+                const ultimo = i === FEATURES.length - 1;
+                return (
+                  <div
+                    key={f.titulo}
+                    className={ultimo ? "vs-feature-full" : undefined}
+                    style={{
+                      background:   COR.fundoCard,
+                      border:       `1px solid ${COR.fundoBorda}`,
+                      borderRadius: 14,
+                      padding:      28,
+                      display:      ultimo ? "flex" : "block",
+                      gap:          ultimo ? 28 : 0,
+                      alignItems:   ultimo ? "flex-start" : undefined,
+                    }}
+                  >
+                    {ultimo ? (
+                      <>
+                        <div
+                          style={{
+                            width:          64,
+                            height:         64,
+                            borderRadius:    16,
+                            display:        "flex",
+                            alignItems:     "center",
+                            justifyContent: "center",
+                            fontSize:       32,
+                            background:     `${COR.verde}22`,
+                            border:         `1px solid ${COR.verde}55`,
+                            flexShrink:     0,
+                          }}
+                        >
+                          {f.icone}
+                        </div>
+                        <div style={{ flex: 1, minWidth: 0 }}>
+                          <h3 style={{ fontSize: 20, fontWeight: 700, color: COR.branco, marginBottom: 10 }}>{f.titulo}</h3>
+                          <p style={{ color: COR.brancoOp60, fontSize: 15, lineHeight: 1.7, margin: 0, maxWidth: 900 }}>{f.desc}</p>
+                        </div>
+                      </>
+                    ) : (
+                      <>
+                        <div style={{ fontSize: 32, marginBottom: 14 }}>{f.icone}</div>
+                        <h3 style={{ fontSize: 16, fontWeight: 700, color: COR.branco, marginBottom: 10 }}>{f.titulo}</h3>
+                        <p style={{ color: COR.brancoOp60, fontSize: 14, lineHeight: 1.7, margin: 0 }}>{f.desc}</p>
+                      </>
+                    )}
+                  </div>
+                );
+              })}
             </div>
           </div>
         </section>

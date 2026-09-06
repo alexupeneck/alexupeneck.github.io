@@ -1,7 +1,18 @@
+import { useEffect, useState } from "react";
 import { COR } from "../constants/cores";
 import heroBg from "../assets/Design sem nome.mp4";
 
 export default function HeroSection() {
+  const [reduzido, setReduzido] = useState(false);
+
+  useEffect(() => {
+    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    setReduzido(mq.matches);
+    const onChange = () => setReduzido(mq.matches);
+    mq.addEventListener("change", onChange);
+    return () => mq.removeEventListener("change", onChange);
+  }, []);
+
   return (
     <section
       style={{
@@ -18,8 +29,8 @@ export default function HeroSection() {
     >
       {/* Background video */}
       <video
-        autoPlay
-        loop
+        autoPlay={!reduzido}
+        loop={!reduzido}
         muted
         playsInline
         aria-hidden="true"

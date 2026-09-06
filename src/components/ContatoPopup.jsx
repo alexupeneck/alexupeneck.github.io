@@ -82,7 +82,7 @@ export default function ContatoPopup({ onClose, mensagemWa }) {
       <div onClick={onClose} style={{ position: "fixed", inset: 0, background: "rgba(0,0,0,0.65)", zIndex: 2000, backdropFilter: "blur(4px)" }} />
 
       {/* Modal */}
-      <div className="contato-modal" style={{
+      <div className="contato-modal" role="dialog" aria-modal="true" aria-label="Contato XSafra" style={{
         position:     "fixed",
         top:          "50%",
         left:         "50%",

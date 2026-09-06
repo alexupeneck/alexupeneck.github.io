@@ -190,6 +190,7 @@ export default function EcosistemaSection() {
                     <button
                       key={i}
                       onClick={() => setImgAtual(i)}
+                      aria-label={`Mostrar imagem ${i + 1} de ${galeria.length} (${solucao.nome})`}
                       style={{
                         width:        i === imgAtual ? 20 : 6,
                         height:       6,
@@ -275,7 +276,7 @@ export default function EcosistemaSection() {
                 alignSelf:      "flex-start",
               }}
             >
-              Acessar solução →
+              Saiba mais →
             </Link>
           ) : disponivel ? (
             <a
@@ -296,7 +297,7 @@ export default function EcosistemaSection() {
                 alignSelf:      "flex-start",
               }}
             >
-              Acessar solução →
+              Saiba mais →
             </a>
           ) : (
             <span style={{ color: COR.cinza, fontSize: 14, fontStyle: "italic" }}>
@@ -312,6 +313,7 @@ export default function EcosistemaSection() {
           <button
             key={i}
             onClick={() => irPara(i)}
+            aria-label={`Ir para ${s.nome}`}
             style={{
               flex:        1,
               maxWidth:    160,
