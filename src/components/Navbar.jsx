@@ -36,7 +36,7 @@ export default function Navbar({ scrollY }) {
         borderBottom: comFundo ? `1px solid ${COR.fundoBorda}` : "none",
       }}
     >
-      <div style={{ maxWidth: 1600, margin: "0 auto", padding: "0 40px", width: "100%", boxSizing: "border-box" }}>
+      <div className="nav-inner-wrap" style={{ maxWidth: 1600, margin: "0 auto", padding: "0 40px", width: "100%", boxSizing: "border-box" }}>
         <div className="navbar-container" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", height: 112 }}>
 
           {/* Logo */}

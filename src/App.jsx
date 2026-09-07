@@ -69,7 +69,7 @@ export default function App() {
         }
 
         @media (max-width: 768px) {
-          .navbar-logo { margin-left: 0; }
+          .navbar-logo { margin-left: -12px; height: 64px !important; }
           .footer-logo { margin-left: 0; }
 
           /* Navbar — esconde links, mantém só logo e botão */
@@ -77,7 +77,8 @@ export default function App() {
 
           /* Navbar mobile */
           .navbar-container { height: 64px !important; }
-          .navbar-cta { padding: 8px 16px !important; font-size: 13px !important; }
+          .nav-inner-wrap { padding: 0 20px !important; }
+          .navbar-cta { display: none !important; }
           .navbar-hamburguer { display: flex !important; }
           .navbar-hamburguer { top: 0; }
           .navbar-drawer { display: flex !important; }
